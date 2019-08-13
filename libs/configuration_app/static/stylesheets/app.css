@@ -49,14 +49,15 @@ div#mainContent ul{
 div#wpaStatus{
     padding: 4px;
     margin: 0 0 10px 0;
-    width: 250px;
+    width: 100%;
     background-color: #FFD70D;
     text-align: left;
     font-size: .3em;
 }
 
 div#wpaStatus a{
-    color: #fff;
+    color: #000;
+    font-size: 0.8rem;
 }
 
 label[for=ssid],
@@ -89,59 +90,46 @@ li.wifiNetwork {
     width: 90%;
 }
 
-li.wifiNetwork:after {
-    content: '▼';
-    position: absolute;
-    width: 25px;
-    color: #FFD70D;
-    font-weight: bold;
-    font-size: 1.4rem;
-    right: 0px;
-    top: 40%;
-    border-radius: 3px;
-    pointer-events: none;
-    z-index: 2;
-}
 
 select.wifiNetworkInputs {
-    position: relative;
     width: 95%;
-    background: #fff;
-    color: #999;
     border: none;
     outline: none;
-    font-size: 1.5rem;
     padding: 1em;
     margin: 0;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     height: auto;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    background: url(/static/img/drop-down.svg) 97% / 1.5em no-repeat;
 }
 
 .wifiNetworkInputs{
     width: 80%;
     padding:1em;
     font-size: 1.4rem;
+    border-radius: 5px;
     color: #999;
     background: #fff;
     border:#999 solid 1px;
 }
 
-.wifiConnectButton{
+wifiConnectButton {
     width: 80%;
-    margin:2em 0;
-    padding:.5em;
+    margin: 2em 0;
+    padding: .5em;
+    border-radius: 5px;
     background-color: #FFD70D;
     font-size: 2rem;
     color: #000;
 }
 
+
 .manualSSIDEntry{
-	font-size: 1rem;
-	color: #000;
+    font-size: 1rem;
+    color: #999;
 }
 
 div#wpaCredentialsForm{
@@ -185,8 +173,9 @@ footer p{
 /* Small styling */
 .fa{
     color:black;
-    font-size:27px;
-    margin-left:8px;
+    font-size: 20px;
+    margin-left: -55px;
+    padding: 10px;
   }
   #validation-txt{
     color:red;
@@ -212,19 +201,6 @@ footer p{
     }
     div#mainContent {
         max-width:768px;
-    }
-    li.wifiNetwork:after {
-        content: '▼';
-        position: absolute;
-        width: 50px;
-        color: #FFD70D;
-        font-weight: bold;
-        font-size: 2rem;
-        margin: 0 auto;
-        bottom: 50px;
-        border-radius: 3px;
-        pointer-events: none;
-        z-index: 2;
     }
 
     div#saveCredentialsOutput{
