@@ -1,4 +1,6 @@
-RaspiWiFi
+THIS REPO IS BASED ON https://github.com/jasbur/RaspiWiFi
+
+All cred to @jasbur with RaspiWiFi
 
 RaspiWiFi is a program to headlessly configure a Raspberry Pi's WiFi
 connection using using any other WiFi-enabled device (much like the way
