@@ -25,6 +25,10 @@ div#mainContent{
     color: #000000;
 }
 
+h3{
+    font-size: 1.5rem;
+}
+
 div#mainContent h1 {
     margin:0 0 .5em 0;
     font-size:3rem;
@@ -51,7 +55,7 @@ div#wpaStatus a{
 
 label[for=ssid],
 label[for=wifi_key]{
-    font-size:1.9rem;
+    font-size:1.2rem;
 }
 
 /* Select
@@ -145,6 +149,7 @@ div#saveCredentialsOutput{
 }
 
 img.sl-logo{
+    font-size: 0.5rem;
     max-width: 250px;
     max-height: 150px;
     padding: 10px;
@@ -175,5 +180,10 @@ img.sl-logo{
         pointer-events: none;
         z-index: 2;
     }
+
+    label[for=ssid],
+    label[for=wifi_key]{
+    font-size:1rem;
+}
 
 }
