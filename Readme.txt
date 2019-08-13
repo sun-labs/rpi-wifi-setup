@@ -11,20 +11,7 @@ point. The Pi will be addressable at 10.0.0.1 using all the normal methods you
 might use while connected through a network.
 
 RaspiWiFi has been
-tested with the Raspberry Pi B+, Raspberry Pi 3, and Raspberry Pi Zero W.
-
-
-
-OS IMAGE USAGE:
-
-== Just burn the ".IMG" file attached to this release to an 8GB+ SD card. Boot
-your Raspberry Pi with the SD card and it will automatically boot into its AP
-Host (broadcast) mode with an SSID based on a unique id (the last four of your
-Pi's serial number). No input devices or displays necessary. Otherwise this is
-a base install of the current Raspbian Stretch, up to date as of the date of
-this release.
-
-
+tested with the Raspberry Pi4.
 
  SCRIPT-BASED INSTALLATION INSTRUCTIONS:
 
