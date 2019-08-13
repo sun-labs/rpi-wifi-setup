@@ -2,9 +2,6 @@
 
 {% block body %}
   <div id="mainContent">
-    <img class='sl-logo' src="/img/SL.png" alt="Sun Labs Logo" />
-    <h3>Wifi Screen Setup</h3>
-
     <form action="{{ url_for('save_credentials') }}" method=post>
       <ul>
         <li><label for="ssid">Enter your network SSID:</label></li>
