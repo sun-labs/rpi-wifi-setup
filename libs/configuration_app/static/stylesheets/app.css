@@ -167,6 +167,30 @@ div#saveCredentialsOutput{
 /* Desktop
 ---------------------------------------------------------*/
 
+/* Small styling */
+.fa{
+    color:white;
+    font-size:27px;
+    margin-left:8px;
+  }
+  #validation-txt{
+    color:red;
+    font-size:18px;
+    width: 300px;
+  }
+  #password-3{
+    -webkit-text-security: disc;
+      -moz-text-security:circle;
+       text-security:circle;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
+
 @media (min-width: 800px) {
     div#mainContent h1 {
         font-size:4.5rem;
