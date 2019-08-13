@@ -13,19 +13,6 @@ might use while connected through a network.
 RaspiWiFi has been
 tested with the Raspberry Pi B+, Raspberry Pi 3, and Raspberry Pi Zero W.
 
-
-
-OS IMAGE USAGE:
-
-== Just burn the ".IMG" file attached to this release to an 8GB+ SD card. Boot
-your Raspberry Pi with the SD card and it will automatically boot into its AP
-Host (broadcast) mode with an SSID based on a unique id (the last four of your
-Pi's serial number). No input devices or displays necessary. Otherwise this is
-a base install of the current Raspbian Stretch, up to date as of the date of
-this release.
-
-
-
  SCRIPT-BASED INSTALLATION INSTRUCTIONS:
 
 == Navigate to the directory where you downloaded or cloned RaspiWiFi
@@ -53,10 +40,10 @@ CONFIGURATION:
       Configuration Mode (Host Mode). The last four of you Pi's serial number
       will be appended to whatever you enter here.
 
-==== "WPA Encryption" [default: No]: If oyu enable this setting the Access Point 
-      created during Configuration Mode will be encrypted using WPA2 encryption. 
-      The prompt following this one will let you specify the Wireless Key to be 
-      used. You can leave the password blank if you chose 'N' to this option. 
+==== "WPA Encryption" [default: No]: If oyu enable this setting the Access Point
+      created during Configuration Mode will be encrypted using WPA2 encryption.
+      The prompt following this one will let you specify the Wireless Key to be
+      used. You can leave the password blank if you chose 'N' to this option.
 
 ==== "Auto-Config mode" [default: n]: If you choose to enable this mode your Pi
       will check for an active connection while in normal operation mode (Client Mode).
@@ -107,11 +94,11 @@ specify your network information by clicking on the "manual SSID entry ->" link.
 == At this point your Raspberry Pi will reboot and connect to the access point
 specified.
 
-== You can view the current WPA encryption settings and change them from the main Web 
-Configuration interface. The current settings are visible in a panel in the upper 
-left corner of the screen. If you click the values in this display you will be taken 
-to a page where you can change them. If you change them your device will reboot to 
-enable the new configuration. 
+== You can view the current WPA encryption settings and change them from the main Web
+Configuration interface. The current settings are visible in a panel in the upper
+left corner of the screen. If you click the values in this display you will be taken
+to a page where you can change them. If you change them your device will reboot to
+enable the new configuration.
 
 == You can also use the Pi in a point-to-point connection mode by leaving it in
 Configuration Mode. All services will be addresible in their normal way at
@@ -134,9 +121,9 @@ or if incorrect connection information is ever entered. Just press and hold for
 UNINSTALLATION:
 
 == You can uninstall RaspiWiFi at any time by running:
-   
+
    sudo python3 /usr/lib/raspiwifi/uninstall.python3
 
-   You can also run it from the "libs/" directory from a fresh clone if you've 
-   installed from a previous version and don't have /usr/lib/raspiwifi/uninstall.py 
+   You can also run it from the "libs/" directory from a fresh clone if you've
+   installed from a previous version and don't have /usr/lib/raspiwifi/uninstall.py
    available.
