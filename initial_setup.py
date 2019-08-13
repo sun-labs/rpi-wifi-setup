@@ -15,20 +15,13 @@ print("##### RaspiWiFi Intial Setup  #####")
 print("###################################")
 print()
 print()
-entered_ssid = input("Would you like to specify an SSID you'd like to use \nfor Host/Configuration mode? [default: RaspiWiFi Setup]: ")
-print()
-wpa_enabled_choice = input("Would you like WPA encryption enabled on the hotspot \nwhile in Configuration Mode? [y/N]:")
-print()
-wpa_entered_key = input("What password would you like to for WPA hotspot \naccess (if enabled above, \nMust be at least 8 characters) [default: NO PASSWORD]:")
-print()
-auto_config_choice = input("Would you like to enable \nauto-reconfiguration mode [y/N]?: ")
-print()
-auto_config_delay = input("How long of a delay would you like without an active connection \nbefore auto-reconfiguration triggers (seconds)? [default: 300]: ")
-print()
-server_port_choice = input("Which port would you like to use for the Configuration Page? [default: 80]: ")
-print()
-ssl_enabled_choice = input("Would you like to enable SSL during configuration mode \n(NOTICE: you will get a certificate ID error \nwhen connecting, but traffic will be encrypted) [y/N]?: ")
-os.system('clear')
+entered_ssid = "SL screen"
+wpa_enabled_choice = "N"
+wpa_entered_key = "coolscreen"
+auto_config_choice = "N"
+auto_config_delay = "100"
+server_port_choice = "80"
+ssl_enabled_choice = "N"
 print()
 print()
 install_ans = input("Are you ready to commit changes to the system? [y/N]: ")

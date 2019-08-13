@@ -36,15 +36,11 @@ div#mainContent ul{
     padding: 0;
 }
 
-div#mainContent form {
-    margin-top:-2em;
-}
-
 div#wpaStatus{
     padding: 4px;
     margin: 0 0 10px 0;
     width: 250px;
-    background-color: #928043;
+    background-color: #FFD70D;
     text-align: left;
     font-size: .3em;
 }
@@ -76,7 +72,7 @@ li.wifiNetwork:after {
     content: '▼';
     position: absolute;
     width: 25px;
-    color: #deab04;
+    color: #FFD70D;
     font-weight: bold;
     font-size: 1.4rem;
     right: 0px;
@@ -117,9 +113,9 @@ select.wifiNetworkInputs {
     width: 100%;
     margin:2em 0;
     padding:.5em;
-    background-color: #deab04;
+    background-color: #FFD70D;
     font-size: 2rem;
-    color: #fff;
+    color: #000;
 }
 
 .manualSSIDEntry{
@@ -144,25 +140,16 @@ div#saveCredentialsOutput{
 }
 
 .saveCredentialsSSID{
-  color: #deab04;
+  color: #FFD70D;
   font-size: 2em;
 }
 
-/* Wifi Icon
----------------------------------------------------------*/
-
-.wifiIcon {
+img.sl-logo{
+    max-width: 250px;
+    max-height: 150px;
     padding: 10px;
-}
-.wifiIcon, .wifiIcon:before {
-    display: inline-block;
-    border: 40px double transparent;
-    border-top-color: currentColor;
-    border-radius: 50%;
-}
-.wifiIcon:before {
-    content: '';
-    width: 0; height: 0;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Desktop
@@ -179,7 +166,7 @@ div#saveCredentialsOutput{
         content: '▼';
         position: absolute;
         width: 50px;
-        color: #deab04;
+        color: #FFD70D;
         font-weight: bold;
         font-size: 2rem;
         right: 0px;
