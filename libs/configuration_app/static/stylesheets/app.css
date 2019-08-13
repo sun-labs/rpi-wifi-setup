@@ -104,7 +104,7 @@ li.wifiNetwork:after {
 
 select.wifiNetworkInputs {
     position: relative;
-    width: 80%;
+    width: 95%;
     background: #fff;
     color: #999;
     border: none;
@@ -181,7 +181,7 @@ div#saveCredentialsOutput{
         color: #FFD70D;
         font-weight: bold;
         font-size: 2rem;
-        right: 0px;
+        margin: 0 auto;
         bottom: 50px;
         border-radius: 3px;
         pointer-events: none;
