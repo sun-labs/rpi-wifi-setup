@@ -28,10 +28,10 @@ if (uninstall_answer.lower() == "y"):
     os.system('mv /etc/dhcpcd.conf.original /etc/dhcpcd.conf 2>/dev/null')
     os.system('sed -i \'s/# RaspiWiFi Startup//\' /etc/crontab')
     os.system('sed -i \'s/@reboot root run-parts \/etc\/cron.raspiwifi\///\' /etc/crontab')
-    
+
     print()
     print()
-    reboot_answer = input('Uninstallation is complete. Would you like to reboot the system now?: ')
+    reboot_answer = input('Uninstallation is complete. Would you like to reboot the system now? [y/N]: ')
 
     if(reboot_answer.lower() == "y"):
         os.system('reboot')
