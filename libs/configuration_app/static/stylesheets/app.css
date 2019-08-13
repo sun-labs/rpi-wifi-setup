@@ -157,7 +157,7 @@ div#saveCredentialsOutput{
   width: 60%;
   margin: 0 0 0 20%;
   text-align: center;
-  font-size: 1.7em;
+  font-size: 1em;
 }
 
 .saveCredentialsSSID{
@@ -212,6 +212,10 @@ div#saveCredentialsOutput{
         pointer-events: none;
         z-index: 2;
     }
+
+    div#saveCredentialsOutput{
+        font-size: 0.6em;
+      }
 
     label[for=ssid],
     label[for=wifi_key]{
