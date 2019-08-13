@@ -4,6 +4,8 @@ def install_prereqs():
 	os.system('clear')
 	os.system('apt update')
 	os.system('clear')
+	print("Installing Python and dnsmasq...")
+	print()
 	os.system('apt install python3 python3-rpi.gpio python3-pip dnsmasq hostapd -y')
 	os.system('clear')
 	print("Installing Flask web server...")
@@ -24,7 +26,7 @@ def copy_configs(wpa_enabled_choice):
 		os.system('cp /usr/lib/raspiwifi/reset_device/static_files/hostapd.conf.wpa /etc/hostapd/hostapd.conf')
 	else:
 		os.system('cp /usr/lib/raspiwifi/reset_device/static_files/hostapd.conf.nowpa /etc/hostapd/hostapd.conf')
-	
+
 	os.system('mv /etc/dhcpcd.conf /etc/dhcpcd.conf.original')
 	os.system('cp /usr/lib/raspiwifi/reset_device/static_files/dhcpcd.conf /etc/')
 	os.system('mkdir /etc/cron.raspiwifi')
@@ -32,6 +34,8 @@ def copy_configs(wpa_enabled_choice):
 	os.system('chmod +x /etc/cron.raspiwifi/aphost_bootstrapper')
 	os.system('echo "# RaspiWiFi Startup" >> /etc/crontab')
 	os.system('echo "@reboot root run-parts /etc/cron.raspiwifi/" >> /etc/crontab')
+	os.system('sudo sed -i "/exit 0/i \sudo dhclient wlan0" /etc/rc.local') # Adding dhclient every boot, is needed for OS buster
+	os.system('echo "sudo dhclient wlan0" >> /etc/rc.local')
 	os.system('mv /usr/lib/raspiwifi/reset_device/static_files/raspiwifi.conf /etc/raspiwifi')
 	os.system('touch /etc/raspiwifi/host_mode')
 
