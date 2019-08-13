@@ -11,7 +11,7 @@ os.system('clear')
 print()
 print()
 print("###################################")
-print("##### RaspiWiFi Intial Setup  #####")
+print("##### rpiWifi Intial Setup  #####")
 print("###################################")
 print()
 print()
@@ -19,8 +19,8 @@ entered_ssid = "SL-Screen"
 wpa_enabled_choice = "N"
 wpa_entered_key = "coolcool"
 auto_config_choice = "y"
-auto_config_delay = "100"
-server_port_choice = "80"
+auto_config_delay = 100
+server_port_choice = 80
 ssl_enabled_choice = "N"
 install_ans = input("Are you ready to commit changes to the system? [y/N]: ")
 
