@@ -3,7 +3,7 @@ import sys
 import os
 import reset_lib
 
-WAITFORCONNECTION = 30
+WAITFORCONNECTION = 30 #Time after boot that the system will check for wifi connection before turning in to AP.
 no_conn_counter = 0
 consecutive_active_reports = 0
 config_hash = reset_lib.config_file_hash()

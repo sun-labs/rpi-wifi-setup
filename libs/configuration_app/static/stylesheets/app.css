@@ -141,7 +141,7 @@ div#wpaCredentialsForm{
 }
 
 div#saveCredentialsOutput{
-  width: 60%;
+  width: 100%;
   text-align: center;
   font-size: 1em;
   display: flex;
@@ -149,6 +149,10 @@ div#saveCredentialsOutput{
   justify-content: center;
   flex-direction: column;
 }
+
+div#saveCredentialsOutput > div{
+    width: 80%;
+  }
 
 .saveCredentialsSSID{
   color: #FFD70D;
@@ -214,10 +218,10 @@ footer p{
     font-size:1rem;
 }
 div#saveCredentialsOutput{
-    width: 80%;
+    width: 100%;
   }
 
-  #saveCredentialsOutput p{
+  div#saveCredentialsOutput p{
       font-size: 1rem;
   }
 
