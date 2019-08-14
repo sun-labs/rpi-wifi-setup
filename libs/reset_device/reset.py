@@ -4,7 +4,7 @@ import time
 import subprocess
 import reset_lib
 
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 counter = 0
@@ -30,7 +30,7 @@ while True:
 
         print(counter)
 
-        if counter == 9:
+        if counter <= 5:
             reset_lib.reset_to_host_mode()
 
         if GPIO.input(18) == 0:

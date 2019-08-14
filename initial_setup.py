@@ -18,8 +18,8 @@ print()
 entered_ssid = "SL screen"
 wpa_enabled_choice = "N"
 wpa_entered_key = "coolscreen"
-auto_config_choice = "Y"
-auto_config_delay = "60"
+auto_config_choice = "n"
+auto_config_delay = "300"
 server_port_choice = "80"
 ssl_enabled_choice = "N"
 print()
