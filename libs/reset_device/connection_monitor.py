@@ -3,7 +3,7 @@ import sys
 import os
 import reset_lib
 
-WAITFORCONNECTION = 30 #Time after boot that the system will check for wifi connection before turning in to AP.
+WAITFORCONNECTION = 30 #Time after boot that the system will check for wifi connection before turning in to AP. TODO this should maybe be 60 secounds in production
 no_conn_counter = 0
 consecutive_active_reports = 0
 config_hash = reset_lib.config_file_hash()
@@ -25,13 +25,13 @@ if config_hash['auto_config'] == "0":
             # Since wpa_supplicant seems to breifly associate with an AP for
             # 6-8 seconds to check the network key the below will reset the
             # will exit the program only if thre 5 second checks have come up active.
-            if consecutive_active_reports >= 3:
+            if consecutive_active_reports >= 2:
                 sys.exit()
 
         # If the number of seconds not associated with an AP is greater or
         # equal to the auto_config_delay specified in the /etc/raspiwifi/raspiwifi.conf
         # trigger a reset into AP Host (Configuration) mode.
-        if no_conn_counter <= WAITFORCONNECTION:
+        if no_conn_counter >= WAITFORCONNECTION:
             reset_lib.reset_to_host_mode()
             sys.exit()
 
