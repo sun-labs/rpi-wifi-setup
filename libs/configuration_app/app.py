@@ -11,7 +11,7 @@ app.debug = True
 
 @app.route('/')
 def index():
-    return render_template('app.html', load = wifi_found)
+    return render_template('app.html')
 
 @app.route('/list_wifi')
 def list_wifi():

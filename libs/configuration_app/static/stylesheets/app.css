@@ -121,11 +121,11 @@ select.wifiNetworkInputs {
     margin: 2em 0;
     padding: .5em;
     border-radius: 5px;
+    -webkit-appearance: none;
     background-color: #FFD70D;
     font-size: 2rem;
     color: #000;
 }
-
 
 .manualSSIDEntry{
     font-size: 1rem;
@@ -279,4 +279,13 @@ footer p{
       height: 58px;
       opacity: 0;
     }
+  }
+
+  textarea,
+  input.text,
+  input[type="text"],
+  input[type="button"],
+  input[type="submit"],
+  .input-checkbox {
+  -webkit-appearance: none;
   }
