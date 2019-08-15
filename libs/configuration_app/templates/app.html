@@ -2,6 +2,18 @@
 
 {% block body %}
   <div id="mainContent">
+      <script type="text/javascript">
+      function hideElement()
+      {
+        var foundWifi = '{{ found_wifi }}';
+        if( foundWifi ){
+          document.getElementById("wifiLoad").style.visibility="hidden" ;
+        }  else {
+          document.getElementById("wifiFound").style.visibility="hidden";
+        }
+      }
+      </script>
+    <div id="wifiFound">
     <div id="wpaStatus">
       <ul>
         {% if config_hash['wpa_enabled'] == '1': %}
@@ -11,36 +23,41 @@
 
         {% if config_hash['wpa_enabled'] == '0': %}
           <li><a href="{{ url_for('wpa_settings') }}">Config. Mode WPA: DISABLED</a></li>
-      {% endif %}
-      </ul>
+        {% endif %}
+        </ul>
+      </div>
+
+      <img class='sl-logo' src="/static/img/sl-logo.png" alt="Sun Labs Logo" />
+      <h3>Wifi Screen Setup</h3>
+
+
+      <form action="{{ url_for('save_credentials') }}" method=post>
+        <ul>
+          <li><label for="ssid">Select your WiFi network</label></li>
+
+          <li class="wifiNetwork">
+            <select id="ssid" name="ssid", class="wifiNetworkInputs">
+              {% for ssid in wifi_ap_array %}
+                <option value='{{ ssid }}'>{{ ssid }}</option>
+              {% endfor %}
+            </select>
+          </li>
+
+          <li><label for="wifi_key">Your Wifi password</label></li>
+          <li>
+            <input type="password" id="password-field" name="wifi_key", class="wifiNetworkInputs">
+            <i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i>
+          </li>
+
+          <li><a href="{{ url_for('manual_ssid_entry') }}" class="manualSSIDEntry">manual SSID entry → </a></li>
+
+          <input type="submit", value="CONNECT WIFI" class="wifiConnectButton">
+        </ul>
+      </form>
     </div>
-
-    <img class='sl-logo' src="/static/img/sl-logo.png" alt="Sun Labs Logo" />
-    <h3>Wifi Screen Setup</h3>
-
-
-    <form action="{{ url_for('save_credentials') }}" method=post>
-      <ul>
-        <li><label for="ssid">Select your WiFi network</label></li>
-
-        <li class="wifiNetwork">
-          <select id="ssid" name="ssid", class="wifiNetworkInputs">
-            {% for ssid in wifi_ap_array %}
-              <option value='{{ ssid }}'>{{ ssid }}</option>
-            {% endfor %}
-          </select>
-        </li>
-
-        <li><label for="wifi_key">Your Wifi password</label></li>
-        <li>
-          <input type="password" id="password-field" name="wifi_key", class="wifiNetworkInputs">
-          <i id="pass-status" class="fa fa-eye" aria-hidden="true" onClick="viewPassword()"></i>
-        </li>
-
-        <li><a href="{{ url_for('manual_ssid_entry') }}" class="manualSSIDEntry">manual SSID entry → </a></li>
-
-        <input type="submit", value="CONNECT WIFI" class="wifiConnectButton">
-      </ul>
-    </form>
+    <div id="wifiLoad">
+        <div><p>Scanning for networks..</p></div>
+        <div class="lds-ripple"><div></div><div></div></div>
+    </div>
   </div>
 {% endblock %}

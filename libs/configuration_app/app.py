@@ -7,18 +7,14 @@ import fileinput
 
 app = Flask(__name__)
 app.debug = True
-
+found = False
 
 @app.route('/')
 def index():
-    render_template('loading.html')
+    handling_wifi_scan()
     wifi_ap_array = []
-    while (wifi_ap_array <= 0):
-        wifi_ap_array = scan_wifi_networks()
-        # TODO add timeout if no wifis is displayed
     config_hash = config_file_hash()
-
-    return render_template('app.html', wifi_ap_array = wifi_ap_array, config_hash = config_hash)
+    return render_template('app.html', wifi_ap_array = wifi_ap_array, config_hash = config_hash, found_wifi = found)
 
 
 @app.route('/manual_ssid_entry')
@@ -74,6 +70,15 @@ def save_wpa_credentials():
 
 
 ######## FUNCTIONS ##########
+def handling_wifi_scan():
+    wifi_ap_array = []
+    while (len(wifi_ap_array) <= 0):
+        wifi_ap_array = scan_wifi_networks()
+    found = True
+    ap_array_no_dupli = list(dict.fromkeys(wifi_ap_array))
+    config_hash = config_file_hash()
+
+    return render_template('app.html', wifi_ap_array = wifi_ap_array_no_dupli, config_hash = config_hash, found_wifi = found)
 
 def scan_wifi_networks():
     iwlist_raw = subprocess.Popen(['iwlist', 'scan'], stdout=subprocess.PIPE)
@@ -85,6 +90,7 @@ def scan_wifi_networks():
             ap_ssid = line[27:-1]
             if ap_ssid != '':
                 ap_array.append(ap_ssid)
+
 
     return ap_array
 
