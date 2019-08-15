@@ -3,7 +3,7 @@ import sys
 import os
 import reset_lib
 
-WAITFORCONNECTION = 30 #Time after boot that the system will check for wifi connection before turning in to AP. TODO this should maybe be 60 secounds in production
+WAITFORCONNECTION = 120 #Time after boot that the system will check for wifi connection before turning in to AP. TODO this should maybe be 60 secounds in production
 no_conn_counter = 0
 consecutive_active_reports = 0
 config_hash = reset_lib.config_file_hash()
@@ -11,29 +11,31 @@ config_hash = reset_lib.config_file_hash()
 
 # If auto_config is set to 0 in /etc/raspiwifi/raspiwifi.conf exit this script
 if config_hash['auto_config'] == "0":
-    while True:
-        time.sleep(5)
+    sys.exit()
+    #### USE THIS IF WE WANT TO CHECK FOR ACTIVE CONNECTION ON BOOT
+    # while True:
+    #     time.sleep(5)
 
-        if reset_lib.is_wifi_active() == False:
-            no_conn_counter += 5
-            consecutive_active_reports = 0
-        # If iwconfig report association with an AP add 1 to the
-        # consecutive_active_reports counter and 10 to the no_conn_counter
-        else:
-            consecutive_active_reports += 1
-            no_conn_counter += 5
-            # Since wpa_supplicant seems to breifly associate with an AP for
-            # 6-8 seconds to check the network key the below will reset the
-            # will exit the program only if thre 5 second checks have come up active.
-            if consecutive_active_reports >= 2:
-                sys.exit()
+    #     if reset_lib.is_wifi_active() == False:
+    #         no_conn_counter += 5
+    #         consecutive_active_reports = 0
+    #     # If iwconfig report association with an AP add 1 to the
+    #     # consecutive_active_reports counter and 10 to the no_conn_counter
+    #     else:
+    #         consecutive_active_reports += 1
+    #         no_conn_counter += 5
+    #         # Since wpa_supplicant seems to breifly associate with an AP for
+    #         # 6-8 seconds to check the network key the below will reset the
+    #         # will exit the program only if thre 5 second checks have come up active.
+    #         if consecutive_active_reports >= 2:
+    #             sys.exit()
 
-        # If the number of seconds not associated with an AP is greater or
-        # equal to the auto_config_delay specified in the /etc/raspiwifi/raspiwifi.conf
-        # trigger a reset into AP Host (Configuration) mode.
-        if no_conn_counter >= WAITFORCONNECTION:
-            reset_lib.reset_to_host_mode()
-            sys.exit()
+    #     # If the number of seconds not associated with an AP is greater or
+    #     # equal to the auto_config_delay specified in the /etc/raspiwifi/raspiwifi.conf
+    #     # trigger a reset into AP Host (Configuration) mode.
+    #     if no_conn_counter >= WAITFORCONNECTION:
+    #         reset_lib.reset_to_host_mode()
+    #         sys.exit()
 
 
 else:
