@@ -2,18 +2,48 @@
 
 {% block body %}
   <div id="mainContent">
-      <script type="text/javascript">
-      function hideElement()
+    <script>
+      function checkLoad()
       {
-        var foundWifi = '{{ found_wifi }}';
-        if( foundWifi ){
-          document.getElementById("wifiLoad").style.visibility="hidden" ;
-        }  else {
-          document.getElementById("wifiFound").style.visibility="hidden";
+        document.getElementById('wifiDone').style.display = 'none';
+        document.getElementById('wifiLoad').style.display = 'block';
+
+        fetch('{{ url_for("list_wifi") }}')
+          .then(function(response) {
+            return response.json();
+          })
+          .then(function(json) {
+            if (json.wifi_ap_array.length > 0 ){
+              addSSIDs(json.wifi_ap_array)
+              document.getElementById('wifiDone').style.display = 'block';
+              document.getElementById('wifiLoad').style.display = 'none';
+            }
+          });
+      }
+
+      function addSSIDs(arr){
+        var ssidDiv = document.getElementById("ssid")
+        while (ssidDiv.firstChild) {
+          ssidDiv.firstChild.remove();
+        }
+
+        for (var i = 0; i < arr.length; i++ ){
+          var ssid = arr[i]
+           addSSID(ssid)
         }
       }
-      </script>
-    <div id="wifiFound">
+
+      function addSSID(ssid){
+        var ssidDiv = document.getElementById("ssid")
+        var option = document.createElement("option")
+        option.value = ssid
+        option.textContent = ssid
+        ssidDiv.appendChild(option)
+      }
+
+      checkLoad()
+    </script>
+    <div id="wifiDone">
     <div id="wpaStatus">
       <ul>
         {% if config_hash['wpa_enabled'] == '1': %}
@@ -37,9 +67,6 @@
 
           <li class="wifiNetwork">
             <select id="ssid" name="ssid", class="wifiNetworkInputs">
-              {% for ssid in wifi_ap_array %}
-                <option value='{{ ssid }}'>{{ ssid }}</option>
-              {% endfor %}
             </select>
           </li>
 

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask import jsonify
 import subprocess
 import os
 import time
@@ -7,15 +8,21 @@ import fileinput
 
 app = Flask(__name__)
 app.debug = True
-found = False
+wifi_found = False
 
 @app.route('/')
 def index():
-    handling_wifi_scan()
-    wifi_ap_array = []
-    config_hash = config_file_hash()
-    return render_template('app.html', wifi_ap_array = wifi_ap_array, config_hash = config_hash, found_wifi = found)
+    return render_template('app.html', load = wifi_found)
 
+@app.route('/list_wifi')
+def list_wifi():
+    wifi_ap_array = []
+    while (len(wifi_ap_array) <= 0):
+        wifi_ap_array = scan_wifi_networks()
+        wifi_found = True
+    config_hash = config_file_hash()
+
+    return jsonify({wifi_ap_array: wifi_ap_array, config_hash: config_hash})
 
 @app.route('/manual_ssid_entry')
 def manual_ssid_entry():
@@ -70,15 +77,6 @@ def save_wpa_credentials():
 
 
 ######## FUNCTIONS ##########
-def handling_wifi_scan():
-    wifi_ap_array = []
-    while (len(wifi_ap_array) <= 0):
-        wifi_ap_array = scan_wifi_networks()
-    found = True
-    ap_array_no_dupli = list(dict.fromkeys(wifi_ap_array))
-    config_hash = config_file_hash()
-
-    return render_template('app.html', wifi_ap_array = wifi_ap_array_no_dupli, config_hash = config_hash, found_wifi = found)
 
 def scan_wifi_networks():
     iwlist_raw = subprocess.Popen(['iwlist', 'scan'], stdout=subprocess.PIPE)
@@ -91,8 +89,8 @@ def scan_wifi_networks():
             if ap_ssid != '':
                 ap_array.append(ap_ssid)
 
-
-    return ap_array
+    ap_array_no_dupli = list(dict.fromkeys(ap_array))
+    return ap_array_no_dupli
 
 def create_wpa_supplicant(ssid, wifi_key):
     temp_conf_file = open('wpa_supplicant.conf.tmp', 'w')
