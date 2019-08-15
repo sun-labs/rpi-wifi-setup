@@ -11,7 +11,10 @@ app.debug = True
 
 @app.route('/')
 def index():
-    wifi_ap_array = scan_wifi_networks()
+    render_template('loading.html')
+    wifi_ap_array = []
+    while (wifi_ap_array <= 0):
+        wifi_ap_array = scan_wifi_networks()
     config_hash = config_file_hash()
 
     return render_template('app.html', wifi_ap_array = wifi_ap_array, config_hash = config_hash)
@@ -33,7 +36,7 @@ def save_credentials():
     wifi_key = request.form['wifi_key']
 
     create_wpa_supplicant(ssid, wifi_key)
-    
+
     # Call set_ap_client_mode() in a thread otherwise the reboot will prevent
     # the response from getting to the browser
     def sleep_and_start_ap():
