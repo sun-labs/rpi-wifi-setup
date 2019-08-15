@@ -15,6 +15,7 @@ def index():
     wifi_ap_array = []
     while (wifi_ap_array <= 0):
         wifi_ap_array = scan_wifi_networks()
+        # TODO add timeout if no wifis is displayed
     config_hash = config_file_hash()
 
     return render_template('app.html', wifi_ap_array = wifi_ap_array, config_hash = config_hash)
