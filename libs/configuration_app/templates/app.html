@@ -2,49 +2,9 @@
 
 {% block body %}
   <div id="mainContent">
-    <script>
-      function checkLoad()
-      {
-        document.getElementById('wifiDone').style.display = 'none';
-        document.getElementById('wifiLoad').style.display = 'block';
-
-        fetch('{{ url_for("list_wifi") }}')
-          .then(function(response) {
-            return response.json();
-          })
-          .then(function(json) {
-            if (json.wifi_ap_array.length > 0 ){
-              addSSIDs(json.wifi_ap_array)
-              document.getElementById('wifiDone').style.display = 'block';
-              document.getElementById('wifiLoad').style.display = 'none';
-            }
-          });
-      }
-
-      function addSSIDs(arr){
-        var ssidDiv = document.getElementById("ssid")
-        while (ssidDiv.firstChild) {
-          ssidDiv.firstChild.remove();
-        }
-
-        for (var i = 0; i < arr.length; i++ ){
-          var ssid = arr[i]
-           addSSID(ssid)
-        }
-      }
-
-      function addSSID(ssid){
-        var ssidDiv = document.getElementById("ssid")
-        var option = document.createElement("option")
-        option.value = ssid
-        option.textContent = ssid
-        ssidDiv.appendChild(option)
-      }
-
-      checkLoad()
-    </script>
     <div id="wifiDone">
-    <div id="wpaStatus">
+    <!-- REMOVE if we want to enable WPA -->
+    <!-- <div id="wpaStatus">
       <ul>
         {% if config_hash['wpa_enabled'] == '1': %}
           <li><a href="{{ url_for('wpa_settings') }}">Config. Mode WPA: ENABLED</a></li>
@@ -55,12 +15,9 @@
           <li><a href="{{ url_for('wpa_settings') }}">Config. Mode WPA: DISABLED</a></li>
         {% endif %}
         </ul>
-      </div>
-
+      </div> -->
       <img class='sl-logo' src="/static/img/sl-logo.png" alt="Sun Labs Logo" />
       <h3>Wifi Screen Setup</h3>
-
-
       <form action="{{ url_for('save_credentials') }}" method=post>
         <ul>
           <li><label for="ssid">Select your WiFi network</label></li>
@@ -86,5 +43,46 @@
         <div><p>Scanning for networks..</p></div>
         <div class="lds-ripple"><div></div><div></div></div>
     </div>
+    <script>
+        function checkLoad()
+        {
+          document.getElementById('wifiDone').style.display = 'none';
+          document.getElementById('wifiLoad').style.display = 'block';
+
+          fetch('{{ url_for("list_wifi") }}')
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(json) {
+              if (json.wifi_ap_array.length > 0 ){
+                addSSIDs(json.wifi_ap_array)
+                document.getElementById('wifiDone').style.display = 'block';
+                document.getElementById('wifiLoad').style.display = 'none';
+              }
+            });
+        }
+
+        function addSSIDs(arr){
+          var ssidDiv = document.getElementById("ssid")
+          while (ssidDiv.firstChild) {
+            ssidDiv.firstChild.remove();
+          }
+
+          for (var i = 0; i < arr.length; i++ ){
+            var ssid = arr[i]
+             addSSID(ssid)
+          }
+        }
+
+        function addSSID(ssid){
+          var ssidDiv = document.getElementById("ssid")
+          var option = document.createElement("option")
+          option.value = ssid
+          option.textContent = ssid
+          ssidDiv.appendChild(option)
+        }
+
+        checkLoad()
+      </script>
   </div>
 {% endblock %}

@@ -22,7 +22,7 @@ def list_wifi():
         wifi_found = True
     config_hash = config_file_hash()
 
-    return jsonify({wifi_ap_array: wifi_ap_array, config_hash: config_hash})
+    return jsonify({"wifi_ap_array": wifi_ap_array}) #Add config hash to enable WPA
 
 @app.route('/manual_ssid_entry')
 def manual_ssid_entry():
