@@ -17,6 +17,7 @@ body{
 }
 
 div#mainContent{
+    margin-top: 50px;
     background-color: #fff;
     width: 100%;
     margin: 0 auto;
@@ -69,7 +70,6 @@ img.sl-logo{
     font-size: 0.5rem;
     max-width: 250px;
     max-height: 150px;
-    margin-top: 25px;
     padding: 10px;
     display: block;
     margin: 0 auto;

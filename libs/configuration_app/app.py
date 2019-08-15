@@ -8,7 +8,6 @@ import fileinput
 
 app = Flask(__name__)
 app.debug = True
-wifi_found = False
 
 @app.route('/')
 def index():
