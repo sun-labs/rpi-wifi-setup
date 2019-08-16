@@ -11,6 +11,7 @@ config_hash = reset_lib.config_file_hash()
 
 # If auto_config is set to 0 in /etc/raspiwifi/raspiwifi.conf exit this script
 if config_hash['auto_config'] == "0":
+    time.sleep(5)
     sys.exit()
     #### USE THIS IF WE WANT TO CHECK FOR ACTIVE CONNECTION ON BOOT
     # while True:

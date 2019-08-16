@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask import jsonify
 import subprocess
 import os
@@ -13,12 +13,25 @@ app.debug = True
 def index():
     return render_template('app.html')
 
+# Captive portal when connected with iOS or Android
+@app.route('/generate_204')
+def redirect204():
+    return redirect("http://192.168.4.1", code=302)
+
+@app.route('/hotspot-detect.html')
+def applecaptive():
+    return redirect("http://192.168.4.1", code=302)
+
+# Not working for Windows, needs work!
+@app.route('/ncsi.txt')
+def windowscaptive():
+    return redirect("http://192.168.4.1", code=302)
+
 @app.route('/list_wifi')
 def list_wifi():
     wifi_ap_array = []
     while (len(wifi_ap_array) <= 0):
         wifi_ap_array = scan_wifi_networks()
-        wifi_found = True
     config_hash = config_file_hash()
 
     return jsonify({"wifi_ap_array": wifi_ap_array}) #Add config hash to enable WPA
