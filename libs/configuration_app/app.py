@@ -22,9 +22,24 @@ def redirect204():
 def applecaptive():
     return redirect("http://10.0.0.1", code=302)
 
-# Not working for Windows, needs work!
+@app.route('/library/test/success.html')
+def ioscaptive():
+    return redirect("http://10.0.0.1", code=302)
+
+@app.route('/hotspot-detect.html')
+def hotspotcaptive():
+    return redirect("http://10.0.0.1", code=302)
+
 @app.route('/ncsi.txt')
-def windowscaptive():
+def ncsicaptive():
+    return redirect("http://10.0.0.1", code=302)
+
+@app.route('/connecttest.txt')
+def testcaptive():
+    return redirect("http://10.0.0.1", code=302)
+
+@app.route('/fwlink/')
+def fwlinkcaptive():
     return redirect("http://10.0.0.1", code=302)
 
 @app.route('/list_wifi')
