@@ -16,16 +16,16 @@ def index():
 # Captive portal when connected with iOS or Android
 @app.route('/generate_204')
 def redirect204():
-    return redirect("http://192.168.4.1", code=302)
+    return redirect("http://10.0.0.1", code=302)
 
 @app.route('/hotspot-detect.html')
 def applecaptive():
-    return redirect("http://192.168.4.1", code=302)
+    return redirect("http://10.0.0.1", code=302)
 
 # Not working for Windows, needs work!
 @app.route('/ncsi.txt')
 def windowscaptive():
-    return redirect("http://192.168.4.1", code=302)
+    return redirect("http://10.0.0.1", code=302)
 
 @app.route('/list_wifi')
 def list_wifi():
