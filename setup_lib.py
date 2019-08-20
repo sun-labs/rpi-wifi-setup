@@ -43,11 +43,14 @@ def copy_configs(wpa_enabled_choice):
 	os.system('chown root:www-data /var/www/html/.htaccess')
 	os.system('cp -f /home/pi/rpi-wifi-setup/libs/configuration_app/override.conf /etc/apache2/conf-available/')
 	os.system('cd /etc/apache2/conf-enabled')
-	os.system('ln -s ../conf-available/override.conf override.conf')
-	os.system('cd /etc/apache2/mods-enabled')
-	os.system('ln -s ../mods-available/rewrite.load rewrite.load')
+	# os.system('ln -s ../conf-available/override.conf /etc/apache2/conf-enabledoverride.conf')
+	# os.system('cd /etc/apache2/mods-enabled')
+	# os.system('ln -s ../mods-available/rewrite.load rewrite.load')
+	# os.system('cp -f /home/pi/rpi-wifi-setup/libs/configuration_app/app.conf /etc/apache2/sites-available/')
+	# os.system('cd /etc/apache2/sites-available/')
+	os.system('ln -s /home/pi/rpi-wifi-setup/libs/configuration_app/override.conf /etc/apache2/conf-enabled/override.conf')
+	os.system('ln -s /home/pi/rpi-wifi-setup/libs/configuration_app/rewrite.load /etc/apache2/mods-available/rewrite.load')
 	os.system('cp -f /home/pi/rpi-wifi-setup/libs/configuration_app/app.conf /etc/apache2/sites-available/')
-	os.system('cd /etc/apache2/sites-available/')
 	os.system('sudo a2ensite app.conf')
 
 
