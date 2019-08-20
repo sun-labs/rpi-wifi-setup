@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo update-rc.d apache2 enable
+sudo update-rc.d apache2 enable &
 
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
 
