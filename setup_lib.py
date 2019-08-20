@@ -6,7 +6,8 @@ def install_prereqs():
 	os.system('clear')
 	print("Installing Python and dnsmasq...")
 	print()
-	os.system('apt install python3 python3-rpi.gpio python3-pip dnsmasq apache2 hostapd -y') #could have to install macchanger
+	os.system('apt install python3 python3-rpi.gpio python3-pip dnsmasq apache2 hostapd -y')
+	os.system('apt install macchanger -n')
 	os.system('clear')
 	print("Installing Flask web server...")
 	print()
