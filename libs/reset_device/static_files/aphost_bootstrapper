@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo update-rc.d apache2 disable
+sudo update-rc.d apache2 enable
 
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
 
@@ -7,6 +7,5 @@ python3 /usr/lib/raspiwifi/configuration_app/app.py &
 
 hostapd -dd /etc/hostapd/hostapd.conf &
 
-sh ./home/pi/kiosk.sh
 
 # TODO ADD KIOSK SCRIPT HERE
