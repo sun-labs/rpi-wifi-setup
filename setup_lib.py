@@ -6,7 +6,7 @@ def install_prereqs():
 	os.system('clear')
 	print("Installing Python and dnsmasq...")
 	print()
-	os.system('apt install python3 python3-rpi.gpio python3-pip dnsmasq apache2 hostapd -y')
+	os.system('apt install python3 python3-rpi.gpio python3-pip dnsmasq apache2 hostapd macchanger -y')
 	os.system('clear')
 	print("Installing Flask web server...")
 	print()
@@ -35,9 +35,21 @@ def copy_configs(wpa_enabled_choice):
 	os.system('echo "# RaspiWiFi Startup" >> /etc/crontab')
 	os.system('echo "@reboot root run-parts /etc/cron.raspiwifi/" >> /etc/crontab')
 	os.system('sudo sed -i "/exit 0/i \sudo dhclient wlan0" /etc/rc.local') # Adding dhclient every boot, is needed for OS buster
-	os.system('echo "sudo dhclient wlan0" >> /etc/rc.local')
 	os.system('mv /usr/lib/raspiwifi/reset_device/static_files/raspiwifi.conf /etc/raspiwifi')
 	os.system('touch /etc/raspiwifi/host_mode')
+	os.system('chown -R www-data:www-data /var/www/html')
+	os.system('cp /home/pi/rpi-wifi-setup/libs/configuration_app/.htaccess /var/www/html/')
+	os.system('chown root:www-data /var/www/html/.htaccess')
+	os.system('cp -f /home/pi/rpi-wifi-setup/libs/configuration_app/override.conf /etc/apache2/conf-available/')
+	os.system('cd /etc/apache2/conf-enabled')
+	os.system('ln -s ../conf-available/override.conf override.conf')
+	os.system('cd /etc/apache2/mods-enabled')
+	os.system('ln -s ../mods-available/rewrite.load rewrite.load')
+	os.system('cp -f /home/pi/rpi-wifi-setup/libs/configuration_app/app.conf /etc/apache2/sites-available/')
+	os.system('sudo a2dissite /etc/apache2/sites-available/app.conf')
+	os.system('sudo a2ensite /etc/apache2/sites-available/app.conf')
+	os.system('sudo systemctl restart apache2')
+
 
 def update_main_config_file(entered_ssid, auto_config_choice, auto_config_delay, ssl_enabled_choice, server_port_choice, wpa_enabled_choice, wpa_entered_key):
 	if entered_ssid != "":
