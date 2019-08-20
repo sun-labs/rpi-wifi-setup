@@ -1,5 +1,7 @@
 #!/bin/bash
 
-sudo update-rc.d apache2 enable
+sudo update-rc.d apache2 disable
 
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
+
+sh ./home/pi/kiosk.sh
