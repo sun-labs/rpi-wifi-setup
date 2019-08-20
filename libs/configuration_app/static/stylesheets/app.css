@@ -248,7 +248,14 @@ footer p{
 
     .wifiNetworkInputs{
         padding: 1em;
+        font-size: 1.25rem;
+        width: 90%;
     }
+
+    .wifiConnectButton {
+        width: 80%;
+    }
+
 
 }
 
