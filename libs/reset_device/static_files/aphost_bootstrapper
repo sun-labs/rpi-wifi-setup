@@ -7,4 +7,6 @@ python3 /usr/lib/raspiwifi/configuration_app/app.py &
 
 hostapd -dd /etc/hostapd/hostapd.conf &
 
+./home/pi/kiosk.sh
+
 # TODO ADD KIOSK SCRIPT HERE
