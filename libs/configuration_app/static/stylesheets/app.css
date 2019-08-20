@@ -236,6 +236,22 @@ footer p{
 
 }
 
+@media (max-width: 6000px) {
+
+    div#saveCredentialsOutput{
+        font-size: 0.6em;
+    }
+
+    div#saveCredentialsOutput{
+        width: 100%;
+    }
+
+    .wifiNetworkInputs{
+        padding: 1em;
+    }
+
+}
+
 
 .loader {
     border: 16px solid #f3f3f3;
