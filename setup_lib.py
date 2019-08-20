@@ -46,9 +46,8 @@ def copy_configs(wpa_enabled_choice):
 	os.system('cd /etc/apache2/mods-enabled')
 	os.system('ln -s ../mods-available/rewrite.load rewrite.load')
 	os.system('cp -f /home/pi/rpi-wifi-setup/libs/configuration_app/app.conf /etc/apache2/sites-available/')
-	os.system('sudo a2dissite /etc/apache2/sites-available/app.conf')
-	os.system('sudo a2ensite /etc/apache2/sites-available/app.conf')
-	os.system('sudo systemctl restart apache2')
+	os.system('cd /etc/apache2/sites-available/')
+	os.system('sudo a2ensite app.conf')
 
 
 def update_main_config_file(entered_ssid, auto_config_choice, auto_config_delay, ssl_enabled_choice, server_port_choice, wpa_enabled_choice, wpa_entered_key):
