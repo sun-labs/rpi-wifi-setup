@@ -4,4 +4,4 @@ sudo update-rc.d apache2 disable &
 
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
 
-/bin/bash /home/pi/kiosk.sh &
+cp -f /home/pi/rpi-wifi-setup/autostart /home/pi/.config/lxsession/LXDE-pi/ &

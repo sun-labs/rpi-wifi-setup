@@ -1,6 +1,8 @@
 #!/bin/bash
 sudo update-rc.d apache2 enable &
 
+rm -f /home/pi/.config/lxsession/LXDE-pi/autostart &
+
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
 
 python3 /usr/lib/raspiwifi/configuration_app/app.py &
