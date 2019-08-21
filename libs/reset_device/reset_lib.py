@@ -64,17 +64,21 @@ def update_ssid(ssid_prefix, serial_last_four):
 					print(line, end = '')
 
 		reboot_required = True
-			
+
 	return reboot_required
 
 def is_wifi_active():
+	internet_active = True
 	iwconfig_out = subprocess.check_output(['iwconfig']).decode('utf-8')
-	wifi_active = True
+	ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus eth0']).decode('utf-8')
+
+	if "eth0: unplugged" in ifplugstatus_out_eth0:
+		internet_active = False
 
 	if "Access Point: Not-Associated" in iwconfig_out:
-		wifi_active = False
+		internet_active = False
 
-	return wifi_active
+	return internet_active
 
 def reset_to_host_mode():
 	if not os.path.isfile('/etc/raspiwifi/host_mode'):
