@@ -121,7 +121,7 @@ def scan_wifi_networks():
 
 def create_wpa_supplicant(ssid, wifi_key):
     temp_conf_file = open('wpa_supplicant.conf.tmp', 'w')
-
+    temp_conf_file.write('country=SE') #TODO make this dynamic if we ship to more countries
     temp_conf_file.write('ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev\n')
     temp_conf_file.write('update_config=1\n')
     temp_conf_file.write('\n')
