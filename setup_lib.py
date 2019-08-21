@@ -33,6 +33,7 @@ def copy_configs(wpa_enabled_choice):
 	os.system('mkdir /etc/cron.raspiwifi')
 	os.system('cp /usr/lib/raspiwifi/reset_device/static_files/aphost_bootstrapper /etc/cron.raspiwifi')
 	os.system('chmod +x /etc/cron.raspiwifi/aphost_bootstrapper')
+	os.system('chmod +x /usr/lib/raspiwifi/reset_device/static_files/checkEth.py')
 	os.system('echo "# RaspiWiFi Startup" >> /etc/crontab')
 	os.system('echo "@reboot root run-parts /etc/cron.raspiwifi/" >> /etc/crontab')
 	os.system('sudo sed -i "/exit 0/i \sudo dhclient wlan0" /etc/rc.local') # Adding dhclient every boot, is needed for OS buster
