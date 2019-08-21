@@ -70,7 +70,7 @@ def update_ssid(ssid_prefix, serial_last_four):
 def is_wifi_active():
 	internet_active = True
 	iwconfig_out = subprocess.check_output(['iwconfig']).decode('utf-8')
-	ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus eth0']).decode('utf-8')
+	ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus']).decode('utf-8')
 
 	if "eth0: unplugged" in ifplugstatus_out_eth0:
 		internet_active = False

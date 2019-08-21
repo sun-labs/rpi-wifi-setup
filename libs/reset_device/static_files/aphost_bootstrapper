@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo python3 /home/pi/rpi-wifi-setup/libs/reset_device/checkEth.py &
+# sudo python3 /home/pi/rpi-wifi-setup/libs/reset_device/checkEth.py &
 
 sudo update-rc.d apache2 enable &
 

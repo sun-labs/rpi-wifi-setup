@@ -14,11 +14,11 @@ def set_ap_client_mode():
   os.system('reboot')
 
 
-  if __name__ == "__main__":
-    ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus eth0']).decode('utf-8')
-
-    if "eth0: unplugged" in ifplugstatus_out_eth0:
-      set_ap_client_mode()
-    else:
-      exit()
-
+if __name__ == "__main__":
+  ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus']).decode('utf-8')
+  print(ifplugstatus_out_eth0)
+  if "eth0: link beat detected" in ifplugstatus_out_eth0:
+    print("setting AP to client")
+    set_ap_client_mode()
+  else:
+    exit()
