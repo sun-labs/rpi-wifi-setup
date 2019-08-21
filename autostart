@@ -3,4 +3,4 @@
 @pcmanfm --desktop --profile LXDE-pi
 @xscreensaver -no-splash
 @point-rpi
-@sh /home/pi/kiosk.sh
+@sudo /bin/bash /home/pi/kiosk.sh
