@@ -1,9 +1,9 @@
 #!/bin/bash
-sudo python3 /usr/lib/raspiwifi/reset_device/checkEth.py &
-
 sudo update-rc.d apache2 enable &
 
 rm -f /home/pi/.config/lxsession/LXDE-pi/autostart &
+
+python3 /usr/lib/raspiwifi/reset_device/checkEth.py &
 
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
 
