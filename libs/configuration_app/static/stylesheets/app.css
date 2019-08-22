@@ -209,7 +209,7 @@ footer p{
 
 
 
-@media (min-width: 800px) {
+@media (min-width: 1200px) {
     div#mainContent h1 {
         font-size:4.5rem;
     }
