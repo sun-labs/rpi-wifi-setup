@@ -1,6 +1,6 @@
 # comment out "@lxpanel --profile LXDE" to remove toolbar
-@sudo pcmanfm --set-wallpaper="/home/pi/wallpaper.svg"
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
 @xscreensaver -no-splash
 @point-rpi
+@sudo /bin/bash /home/pi/change-background-host.sh
