@@ -3,6 +3,7 @@ import os
 import time
 import subprocess
 import reset_lib
+import os.path
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -38,5 +39,7 @@ while True:
         if GPIO.input(18) == 0:
             counter = 0
             break
+    if (os.path.isfile('/media/pi/SL_RESET/reset.me')):
+        reset_lib.reset_to_host_mode()
 
     time.sleep(1)
