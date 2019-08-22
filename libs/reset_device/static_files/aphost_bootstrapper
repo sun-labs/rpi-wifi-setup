@@ -1,8 +1,6 @@
 #!/bin/bash
 sudo update-rc.d apache2 enable &
 
-os.system('sudo cp -f /home/pi/wallpapers/setup-wallpaper.svg /home/pi/wallpaper.svg')
-
 rm -f /home/pi/.config/lxsession/LXDE-pi/autostart &
 
 sudo python3 /usr/lib/raspiwifi/reset_device/checkEth.py &
