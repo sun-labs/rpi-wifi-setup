@@ -15,10 +15,18 @@ def set_ap_client_mode():
 
 
 if __name__ == "__main__":
-  ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus']).decode('utf-8')
-  print(ifplugstatus_out_eth0)
-  if "eth0: link beat detected" in ifplugstatus_out_eth0:
-    print("setting AP to client")
-    set_ap_client_mode()
-  else:
-    exit()
+
+  counter = 0
+
+  while True:
+    time.sleep(1)
+
+    ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus']).decode('utf-8')
+    print(ifplugstatus_out_eth0)
+    if "eth0: link beat detected" in ifplugstatus_out_eth0:
+      print("setting AP to client")
+      set_ap_client_mode()
+      exit()
+    if( counter >= 10):
+      exit()
+    counter += 1
