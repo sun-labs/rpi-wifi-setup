@@ -23,3 +23,4 @@ if __name__ == "__main__":
     ifplugstatus_out_eth0 = subprocess.check_output(['ifplugstatus']).decode('utf-8')
     if "eth0: link beat detected" in ifplugstatus_out_eth0:
       set_ap_client_mode()
+      exit()
