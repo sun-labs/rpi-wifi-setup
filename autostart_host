@@ -3,4 +3,3 @@
 @pcmanfm --desktop --profile LXDE-pi
 @xscreensaver -no-splash
 @point-rpi
-@sudo /bin/bash /home/pi/change-background-host.sh

@@ -3,5 +3,4 @@
 @pcmanfm --desktop --profile LXDE-pi
 @xscreensaver -no-splash
 @point-rpi
-@sudo /bin/bash /home/pi/change-background.sh
 @sudo /bin/bash /home/pi/kiosk.sh
