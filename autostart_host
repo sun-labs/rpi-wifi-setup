@@ -1,0 +1,7 @@
+# comment out "@lxpanel --profile LXDE" to remove toolbar
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@xscreensaver -no-splash
+@point-rpi
+@export DISPLAY=:0.0
+@pcmanfm --set-wallpaper="/home/pi/setup-wallpaper.svg"

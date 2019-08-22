@@ -4,3 +4,5 @@
 @xscreensaver -no-splash
 @point-rpi
 @sudo /bin/bash /home/pi/kiosk.sh
+@export DISPLAY=:0.0
+@pcmanfm --set-wallpaper="/home/pi/wallpaper.svg"
