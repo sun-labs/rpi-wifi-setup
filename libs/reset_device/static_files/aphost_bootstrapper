@@ -10,3 +10,7 @@ python3 /usr/lib/raspiwifi/reset_device/reset.py &
 python3 /usr/lib/raspiwifi/configuration_app/app.py &
 
 hostapd -dd /etc/hostapd/hostapd.conf &
+
+os.system('sudo sed "pcmanfm --set-wallpaper="/home/pi/wallpaper.svg" /etc/rc.local') &
+os.system('sudo sed -i "/exit 0/i \pcmanfm --set-wallpaper="/home/pi/setup-wallpaper.svg"" /etc/rc.local') &
+
