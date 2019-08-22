@@ -236,7 +236,7 @@ footer p{
 
 }
 
-@media (max-width: 6000px) {
+@media (max-width: 600px) {
 
     div#saveCredentialsOutput{
         font-size: 0.6em;
