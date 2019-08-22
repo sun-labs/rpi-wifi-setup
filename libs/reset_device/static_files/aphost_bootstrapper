@@ -1,6 +1,8 @@
 #!/bin/bash
 sudo update-rc.d apache2 enable &
 
+os.system('sudo cp -f /home/pi/wallpapers/setup-wallpaper.svg /home/pi/wallpaper.svg')
+
 rm -f /home/pi/.config/lxsession/LXDE-pi/autostart &
 
 sudo python3 /usr/lib/raspiwifi/reset_device/checkEth.py &
@@ -10,7 +12,3 @@ python3 /usr/lib/raspiwifi/reset_device/reset.py &
 python3 /usr/lib/raspiwifi/configuration_app/app.py &
 
 hostapd -dd /etc/hostapd/hostapd.conf &
-
-export DISPLAY=:0.0
-
-pcmanfm --set-wallpaper="/home/pi/setup-wallpaper.svg"
