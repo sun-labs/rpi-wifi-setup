@@ -4,3 +4,7 @@ sudo update-rc.d apache2 disable &
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
 
 cp -f /home/pi/rpi-wifi-setup/autostart /home/pi/.config/lxsession/LXDE-pi/ &
+
+export DISPLAY=:0.0
+
+pcmanfm --set-wallpaper="/home/pi/wallpaper.svg"

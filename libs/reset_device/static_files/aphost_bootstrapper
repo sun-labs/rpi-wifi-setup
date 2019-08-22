@@ -10,3 +10,7 @@ python3 /usr/lib/raspiwifi/reset_device/reset.py &
 python3 /usr/lib/raspiwifi/configuration_app/app.py &
 
 hostapd -dd /etc/hostapd/hostapd.conf &
+
+export DISPLAY=:0.0
+
+pcmanfm --set-wallpaper="/home/pi/setup-wallpaper.svg"
