@@ -53,8 +53,8 @@ def copy_configs(wpa_enabled_choice):
 	os.system('ln -s /home/pi/rpi-wifi-setup/libs/configuration_app/rewrite.load /etc/apache2/mods-available/rewrite.load')
 	os.system('cp -f /home/pi/rpi-wifi-setup/libs/configuration_app/app.conf /etc/apache2/sites-available/')
 	os.system('sudo a2ensite app.conf')
-	os.system('sudo sed -i -e "/wallpaper=/d" /etc/lightdm/pi-greeter.conf')
-	os.system('sudo sed -i "/wallpaper_mode/i \wallpaper=/home/pi/setup-wallpaper.svg" /etc/lightdm/pi-greeter.conf')
+	# os.system('sudo sed -i -e "/wallpaper=/d" /etc/lightdm/pi-greeter.conf')
+	# os.system('sudo sed -i "/wallpaper_mode/i \wallpaper=/home/pi/setup-wallpaper.svg" /etc/lightdm/pi-greeter.conf')
 
 
 def update_main_config_file(entered_ssid, auto_config_choice, auto_config_delay, ssl_enabled_choice, server_port_choice, wpa_enabled_choice, wpa_entered_key):
