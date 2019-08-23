@@ -10,3 +10,7 @@ python3 /usr/lib/raspiwifi/reset_device/reset.py &
 python3 /usr/lib/raspiwifi/configuration_app/app.py &
 
 hostapd -dd /etc/hostapd/hostapd.conf &
+
+sudo sed -i -e "/wallpaper=/d" /etc/lightdm/pi-greeter.conf &
+
+sudo sed -i "/wallpaper_mode/i \wallpaper=/home/pi/setup-wallpaper.svg" /etc/lightdm/pi-greeter.conf &

@@ -5,3 +5,5 @@ cp -f /home/pi/rpi-wifi-setup/autostart_client /home/pi/.config/lxsession/LXDE-p
 
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
 
+sudo sed -i -e "/wallpaper=/d" /etc/lightdm/pi-greeter.conf &
+sudo sed -i "/wallpaper_mode/i \wallpaper=/home/pi/wallpaper.svg" /etc/lightdm/pi-greeter.conf &
