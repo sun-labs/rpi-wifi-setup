@@ -1,23 +1,16 @@
 THIS REPO IS BASED ON https://github.com/jasbur/RaspiWiFi
-
 All cred to @jasbur with RaspiWiFi
 
-RaspiWiFi is a program to headlessly configure a Raspberry Pi's WiFi
-connection using using any other WiFi-enabled device (much like the way
-a Chromecast or similar device can be configured).
-
-It can also be used as a method to connect wirelessly point-to-point with your
-Pi when a network is not available or you do not want to connect to one. Just
-leave it in Configuration Mode, connect to the "SL screen [xxxx] Setup" access
+Just leave it in Configuration Mode, connect to the "SL screen [xxxx] Setup" access
 point. The Pi will be addressable at 10.0.0.1 using all the normal methods you
 might use while connected through a network.
 
-RaspiWiFi has been
-tested with the Raspberry Pi 4.
+SL screen has been
+tested with the Raspberry Pi 4 with Buster.
 
- SCRIPT-BASED INSTALLATION INSTRUCTIONS:
+### SCRIPT-BASED INSTALLATION INSTRUCTIONS:
 
-== Navigate to the directory where you downloaded or cloned RaspiWiFi
+== Navigate to the directory where you downloaded or cloned SL screen
 
 == Run:
 
@@ -26,16 +19,14 @@ sudo python3 initial_setup.py
 == This script will install all necessary prerequisites and copy all necessary
 config and library files, then reboot. When it finishes booting it should
 present itself in "Configuration Mode" as a WiFi access point with the
-name "RaspiWiFi[xxxx] Setup".
+name "SL screen [xxxx]".
 
-== The original RaspiWiFi directory that you ran the Initial Setup is no longer
+== The original GIT directory that you ran the Initial Setup is no longer
 needed after installation and can be safely deleted. All necessary files are
 copied to /usr/lib/raspiwifi/ on setup.
 
 
-CONFIGURATION:
-
-== You will be prompted to set a few variables during the Initial Setup script:
+### CONFIGURATION:
 
 ==== "SSID Prefix" [default: "RaspiWiFi Setup"]: This is the prefix of the SSID
       that your Pi will broadcast for you to connect to during
@@ -76,15 +67,15 @@ CONFIGURATION:
 been running by editing the /etc/raspiwifi/raspiwifi.conf
 
 
-USAGE:
+### USAGE:
 
-== Connect to the "RaspiWiFi[xxxx] Setup" access point using any other WiFi enabled
+== Connect to the "SL screen [xxxx]" access point using any other WiFi enabled
 device.
 
-== Navigate to [10.0.0.1], [raspiwifisetup.com], or
-[idliketoconfigurethewifionthisdevicenowplease.com] (I was debating whether this
-was funny or not and, yes, it was) using any web browser on the device you
-connected with. (don't forget to manually start with [https://] when using SSL mode)
+== A captive portal will open (tested on android, iOS and mac) 
+Else  Navigate to [10.0.0.1], using any web browser on the device you
+connected with. 
+(don't forget to manually start with [https://] when using SSL mode)
 
 == Select the WiFi connection you'd like your Raspberry Pi to connect to from
 the drop down list and enter its wireless password on the page provided. If no
@@ -96,33 +87,35 @@ specify your network information by clicking on the "manual SSID entry ->" link.
 == At this point your Raspberry Pi will reboot and connect to the access point
 specified.
 
-== You can view the current WPA encryption settings and change them from the main Web
-Configuration interface. The current settings are visible in a panel in the upper
-left corner of the screen. If you click the values in this display you will be taken
-to a page where you can change them. If you change them your device will reboot to
-enable the new configuration.
-
 == You can also use the Pi in a point-to-point connection mode by leaving it in
 Configuration Mode. All services will be addresible in their normal way at
-10.0.0.1 while connected to the "RaspiWiFi[xxxx] Setup" AP.
+10.0.0.1 while connected to the "SL screen [xxxx]" AP.
+
+### ALT USAGE:
+
+== Connect an ethernet cable to the device when in AP mode, the device will reboot
+into client mode. 
 
 
+### RESETTING THE DEVICE:
 
-RESETTING THE DEVICE:
-
-== If GPIO 18 is pulled HIGH for 10 seconds or more the Raspberry Pi will reset
+== If GPIO 15 is pulled HIGH for 5 seconds or more the Raspberry Pi will reset
 all settings, reboot, and enter "Configuration Mode" again. It's useful to have
-a simple button wired on GPIO 18 to reset easily if moving to a new location,
+a simple button wired on GPIO 15 to reset easily if moving to a new location,
 or if incorrect connection information is ever entered. Just press and hold for
 10 seconds or longer.
+
+== Put a USB-drive to some of the USB-ports on the device, the USB must me named `SL_RESET`
+and contain a file named `reset.me`. After the USB been plugged in for 5 secounds it can saftely
+be disconnected and the reset will be followed by a reboot. 
 
 == You can also reset the device by running the manual_reset.py in the
 /usr/lib/raspiwifi/reset_device directory as root or with sudo.
 
 
-UNINSTALLATION:
+### UNINSTALLATION:
 
-== You can uninstall RaspiWiFi at any time by running:
+== You can uninstall SL screen at any time by running:
 
    sudo python3 /usr/lib/raspiwifi/uninstall.python3
 
