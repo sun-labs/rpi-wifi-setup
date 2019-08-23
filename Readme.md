@@ -65,6 +65,7 @@ copied to /usr/lib/raspiwifi/ on setup.
 been running by editing the /etc/raspiwifi/raspiwifi.conf</li>
 
 <ul>
+      
 ### USAGE:
 <ol>
 <li>Connect to the "SL screen [xxxx]" access point using any other WiFi enabled
