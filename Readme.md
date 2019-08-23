@@ -21,7 +21,7 @@ name "SL screen [xxxx]".
 
 The original GIT directory that you ran the Initial Setup is no longer
 needed after installation and can be safely deleted. All necessary files are
-copied to /usr/lib/raspiwifi/ on setup.
+copied to ´/usr/lib/raspiwifi/´ on setup.
 
 
 ### CONFIGURATION:
@@ -30,22 +30,22 @@ copied to /usr/lib/raspiwifi/ on setup.
       that your Pi will broadcast for you to connect to during
       Configuration Mode (Host Mode). The last four of you Pi's serial number
       will be appended to whatever you enter here.</li>
-
+<br/>
 <li>"WPA Encryption" [default: No]: If oyu enable this setting the Access Point
       created during Configuration Mode will be encrypted using WPA2 encryption.
       The prompt following this one will let you specify the Wireless Key to be
       used. You can leave the password blank if you chose 'N' to this option.</li>
-
+<br/>
 <li>"Auto-Config mode" [default: n]: If you choose to enable this mode your Pi
       will check for an active connection while in normal operation mode (Client Mode).
       If an active connection has been determined to be lost, the Pi will reboot
       back into Configuration Mode (Host Mode) automatically.</li>
-
+<br/>
 <li>"Auto-Config delay" [default: 300 seconds]: This is the time in consecutive
       seconds to wait with an inactive connection before triggering a reset into
       Configuration Mode (Host Mode). This is only applicable if the
       "Auto-Config mode" mentioned above is set to active.</li>
-
+<br/>
 <li>"Server port" [default: 80]: This is the server port that the web server
       hosting the Configuration App page will be listening on. If you change
       this port make sure to add it to the end of the address when you're
@@ -53,20 +53,21 @@ copied to /usr/lib/raspiwifi/ on setup.
       you would navigate to the page like this: http://10.0.0.1:12345 If you
       leave the port at the default setting [80] there is no need to specify the
       port when navigating to the page.</li>
-
+<br/>
 <li>"SSL Mode" [default: n]: With this option enabled your RaspiWifi
       configuration page will be sent over an SSL encrypted connection (don't
       forget the "s" when navigating to https://10.0.0.1:9191 when using
       this mode). You will get a certificate error from your web browser when
       connecting. The error is just a warning that the certificate has not been
       verified by a third party but everything will be properly encrypted anyway.</li>
-
+<br/>
 <li>All of these variables can be set at any time after the Initial Setup has
 been running by editing the /etc/raspiwifi/raspiwifi.conf</li>
-
-<ul>
+<br/>
+</ul>
       
 ### USAGE:
+
 <ol>
 <li>Connect to the "SL screen [xxxx]" access point using any other WiFi enabled
 device.</li>
@@ -116,10 +117,10 @@ be disconnected and the reset will be followed by a reboot. </li>
 
 ### UNINSTALLATION:
 
-== You can uninstall SL screen at any time by running:
+You can uninstall SL screen at any time by running:
 
    `sudo python3 /usr/lib/raspiwifi/uninstall.python3`
 
-   You can also run it from the "libs/" directory from a fresh clone if you've
-   installed from a previous version and don't have /usr/lib/raspiwifi/uninstall.py
-   available.
+You can also run it from the `libs/` directory from a fresh clone if you've
+installed from a previous version and don't have `/usr/lib/raspiwifi/uninstall.py`
+available.
