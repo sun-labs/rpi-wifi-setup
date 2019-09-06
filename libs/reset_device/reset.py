@@ -42,4 +42,4 @@ while True:
     if (os.path.isfile('/media/pi/SL_RESET/reset.me')):
         reset_lib.reset_to_host_mode()
 
-    time.sleep(1)
+    time.sleep(10)
