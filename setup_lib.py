@@ -12,9 +12,6 @@ def install_prereqs():
 	print("Installing Flask web server...")
 	print()
 	os.system('pip3 install flask pyopenssl')
-	print("Installing Python Ansible Runner...")
-	print()
-	os.system('pip3 install ansible-runner')
 	os.system('clear')
 
 def copy_configs(wpa_enabled_choice):
