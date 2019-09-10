@@ -12,6 +12,9 @@ def install_prereqs():
 	print("Installing Flask web server...")
 	print()
 	os.system('pip3 install flask pyopenssl')
+	print("Installing Python crontab...")
+	print()
+	os.system('pip3 install python-crontab')
 	os.system('clear')
 
 def copy_configs(wpa_enabled_choice):
