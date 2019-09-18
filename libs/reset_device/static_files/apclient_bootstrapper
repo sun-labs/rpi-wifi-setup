@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo update-rc.d apache2 disable &
 
-cp -f /home/pi/rpi-wifi-setup/autostart_client /home/pi/.config/lxsession/LXDE-pi/autostart &
+cp -f /home/pi/settings/autostart_client /home/pi/.config/lxsession/LXDE-pi/autostart &
 
 python3 /usr/lib/raspiwifi/reset_device/reset.py &
