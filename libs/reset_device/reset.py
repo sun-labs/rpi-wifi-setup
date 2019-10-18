@@ -4,6 +4,7 @@ import time
 import subprocess
 import reset_lib
 import os.path
+from rpi_lib import getserial
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -11,7 +12,8 @@ GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 
 counter = 0
-serial_last_four = subprocess.check_output(['cat', '/proc/cpuinfo'])[-5:-1].decode('utf-8')
+serial = getserial().decode('utf-8')
+serial_last_four = serial[-4:]
 config_hash = reset_lib.config_file_hash()
 ssid_prefix = config_hash['ssid_prefix'] + " "
 reboot_required = False
