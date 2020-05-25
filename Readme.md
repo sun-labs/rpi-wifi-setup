@@ -108,7 +108,7 @@ or if incorrect connection information is ever entered. Just press and hold for
 10 seconds or longer. </li>
 
 <li>Put a USB-drive to some of the USB-ports on the device, the USB must me named `SL_RESET`
-and contain a file named `reset.me. After the USB been plugged in for 5 secounds it can saftely
+and contain a file named `reset.me`. After the USB been plugged in for 5 secounds it can saftely
 be disconnected and the reset will be followed by a reboot. </li>
 
 <li>You can also reset the device by running the manual_reset.py in the
