@@ -1,3 +1,5 @@
+[![Analytics](https://ga-beacon.appspot.com/UA-19159071-9/rpi-wifi-setup)](https://github.com/igrigorik/ga-beacon)
+
 THIS REPO IS BASED ON https://github.com/jasbur/RaspiWiFi
 All cred to @jasbur with RaspiWiFi
 
